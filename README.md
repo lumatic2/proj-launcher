@@ -4,8 +4,7 @@
 
 `~/projects/` 아래 폴더들을 최근 사용순으로 정렬하여 fzf 메뉴로 보여주고, 선택한 프로젝트에서 Claude Code / Codex / Gemini CLI를 바로 실행할 수 있습니다.
 
-<!-- 스크린샷은 screenshots/ 폴더에 추가 후 아래 주석을 해제하세요 -->
-<!-- ![proj 메인 메뉴](screenshots/main-menu.png) -->
+![프로젝트 목록](screenshots/01-project-list.png)
 
 ## 주요 기능
 
@@ -38,6 +37,8 @@
 
 ### Worktree 목록
 
+![Worktree 선택](screenshots/02-worktree.png)
+
 | 키 | 동작 |
 |----|------|
 | `Enter` | worktree 선택 → 에이전트 메뉴 |
@@ -46,6 +47,14 @@
 | `ctrl+R` | 이름 변경 |
 | `ctrl+D` | 삭제 |
 | `Esc` | 프로젝트 목록으로 |
+
+### 에이전트 메뉴
+
+![에이전트 선택](screenshots/03-agent-menu.png)
+
+### 프로젝트 상태 (ctrl+S)
+
+![프로젝트 상태](screenshots/04-status.png)
 
 ## 설치
 
