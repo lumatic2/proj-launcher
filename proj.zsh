@@ -580,6 +580,11 @@ EOF
       mkdir -p "$(dirname "$wt_dir")"
 
       if git -C "$proj_path" worktree add "$wt_dir" -b "$wt_name"; then
+        # ROADMAP.md는 루트(메인 worktree)만 단일 소스로 유지.
+        # sparse-checkout으로 worktree 체크아웃에서 제외.
+        git -C "$wt_dir" sparse-checkout init --no-cone >/dev/null 2>&1
+        git -C "$wt_dir" sparse-checkout set '/*' '!/ROADMAP.md' >/dev/null 2>&1
+
         local inc="$proj_path/.worktreeinclude"
         if [[ -f $inc ]]; then
           while IFS= read -r f; do

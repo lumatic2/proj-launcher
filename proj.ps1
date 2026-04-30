@@ -699,6 +699,11 @@ function proj {
 
             $result = git -C $projPath worktree add $wtDir -b $wtName 2>&1
             if ($LASTEXITCODE -eq 0) {
+                # ROADMAP.md는 루트(메인 worktree)만 단일 소스로 유지.
+                # sparse-checkout으로 worktree 체크아웃에서 제외.
+                git -C $wtDir sparse-checkout init --no-cone 2>&1 | Out-Null
+                git -C $wtDir sparse-checkout set '/*' '!/ROADMAP.md' 2>&1 | Out-Null
+
                 $includeFile = Join-Path $projPath ".worktreeinclude"
                 if (Test-Path $includeFile) {
                     Get-Content $includeFile | ForEach-Object {
